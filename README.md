@@ -5,7 +5,7 @@ Fractal renderer in Java using lwjgl and Slick2D.
 
 Also using PixelData by davedes.
 
-# How to run
+## How to run
 
 Import the project into Eclipse and click the green button. If you still want to run from the command line, here's how:
 
