@@ -1,6 +1,8 @@
 slickFractal
 ============
 
+![screenshot](https://raw.github.com/lucasdnd/slickFractal/master/fractal.png)
+
 Fractal renderer in Java using lwjgl and Slick2D. Also using PixelData by davedes.
 
 Very special thanks to lode.vandevenne and his tutorials on fractals, which allowed me to code this. Check out his tutorials here: http://lodev.org/cgtutor/juliamandelbrot.html
