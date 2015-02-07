@@ -1,5 +1,5 @@
-slick-fractal
-=============
+fractal-explorer
+================
 
 Prepare to see amazing shit like this on your computer screen:
 
