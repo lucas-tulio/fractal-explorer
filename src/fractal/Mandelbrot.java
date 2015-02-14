@@ -24,6 +24,9 @@ public class Mandelbrot extends Set implements IFractal {
     		double zoom, int maxIterations, double xOffset, double yOffset,
     		int[] colorFactor) {
     	
+    	double smoothDiv = maxIterations / 255.0;
+    	System.out.println("smoothDiv value = " + smoothDiv);
+    	
 		for (int y = 0; y < container.getHeight(); y++) {
             for (int x = 0; x < container.getWidth(); x++) {
             	
@@ -53,15 +56,33 @@ public class Mandelbrot extends Set implements IFractal {
             	}
             	
             	// Color, based on the number of iterations and the colorScheme
-            	if(colorFactor[0] == 1 && colorFactor[1] == 1 && colorFactor[2] == 1) {
-            		pixels.putPixel(new Color(i, i, i));
-            	} else {
-            		pixels.putPixel(new Color(i % colorFactor[0], i % colorFactor[1], i % colorFactor[2]));
-            	}
+            	
+            	double smooth = getSmooth(newReal * newReal + newImaginary * newImaginary, i, smoothDiv);
+
+            	int r, g, b; r = g = b = 0;
+            	
+            	//if(colorFactor[0] == 1 && colorFactor[1] == 1 && colorFactor[2] == 1) {
+            	//	pixels.putPixel(new Color(i, i, i));
+            	//} else {
+            	//	pixels.putPixel(new Color(i % colorFactor[0], i % colorFactor[1], i % colorFactor[2]));
+            	//}
+            	
+            	pixels.putPixel(new Color(r, g, b));
             }
         }
 		
 		// Returns an array of Pixels as result
 		return pixels;
 	}
+    
+    private double getSmooth(double mod, int i, double smoothDiv) {
+    	mod = Math.sqrt(mod);
+	    double lg = 0;
+	    lg = Math.log(Math.log(mod));
+	    return (i / smoothDiv) - lg / Math.log(2);
+    }
 }
+
+
+
+
