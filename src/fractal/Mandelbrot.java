@@ -64,9 +64,9 @@ public class Mandelbrot extends Set implements IFractal {
             	if(colorFactor[0] == 1 && colorFactor[1] == 1 && colorFactor[2] == 1) {
             		r = g = b = i;
             	} else {
-            		r = i % colorFactor[0];
-            		g = i % colorFactor[1];
-            		b = i % colorFactor[2];
+            		r = (int)(i % colorFactor[0] * smooth);
+            		g = (int)(i % colorFactor[1] * smooth);
+            		b = (int)(i % colorFactor[2] * smooth);
             	}
             	
             	pixels.putPixel(new Color(r, g, b));
