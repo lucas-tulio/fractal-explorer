@@ -55,17 +55,21 @@ public class Mandelbrot extends Set implements IFractal {
             	}
             	
             	// Color, based on the number of iterations and the colorScheme
-            	
             	double smooth = getSmooth(newReal * newReal + newImaginary * newImaginary, i, smoothDiv);
-
             	int r, g, b; r = g = b = 0;
             	
-            	if(colorFactor[0] == 1 && colorFactor[1] == 1 && colorFactor[2] == 1) {
-            		r = g = b = i;
+            	if (i == maxIterations) {
+        			r = (int)(255 * (colorFactor[0] / 255.0));
+        			g = (int)(255 * (colorFactor[1] / 255.0));
+        			b = (int)(255 * (colorFactor[2] / 255.0));
             	} else {
-            		r = (int)(i * smooth * (colorFactor[0] / 255.0));
-            		g = (int)(i * smooth * (colorFactor[1] / 255.0));
-            		b = (int)(i * smooth * (colorFactor[2] / 255.0));
+                	if(colorFactor[0] == 1 && colorFactor[1] == 1 && colorFactor[2] == 1) {
+                		r = g = b = i;
+                	} else {
+                		r = (int)(smooth * (colorFactor[0] / 255.0) * smoothDiv);
+                		g = (int)(smooth * (colorFactor[1] / 255.0) * smoothDiv);
+                		b = (int)(smooth * (colorFactor[2] / 255.0) * smoothDiv);
+                	}
             	}
             	
             	pixels.putPixel(new Color(r, g, b));

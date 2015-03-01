@@ -68,9 +68,9 @@ public class FractalRenderer extends BasicGame {
 		
 		// Colors
 		colorFactor = new int[3];
-		colorFactor[RED] = 1;
-		colorFactor[GREEN] = 1;
-		colorFactor[BLUE] = 1;
+		colorFactor[RED] = 255;
+		colorFactor[GREEN] = 255;
+		colorFactor[BLUE] = 255;
 		
 		// Show text
 		showText = true;
@@ -194,8 +194,8 @@ public class FractalRenderer extends BasicGame {
 				colorFactor[currentColorControl] += 1;
 			}
 			
-			if(colorFactor[currentColorControl] > 256) {
-				colorFactor[currentColorControl] = 256;
+			if(colorFactor[currentColorControl] > 255) {
+				colorFactor[currentColorControl] = 255;
 			}
 		}
 		
